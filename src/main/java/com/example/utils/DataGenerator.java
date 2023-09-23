@@ -10,7 +10,7 @@ public class DataGenerator {
      * @return returns an array of postive integers
      */
     public static int[] generateRandomArray(){
-        return new Random().ints(10).toArray();
+        return new Random().ints(10,1,100).toArray();
     }
 
 }
