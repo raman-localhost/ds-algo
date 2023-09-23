@@ -1,17 +1,17 @@
 package com.example.algos.searching;
 
-import com.example.algos.sorting.InsertionSort;
 import com.example.utils.DataUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.xml.crypto.Data;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LinearSearchTest {
+class BinarySearchTest {
+
 
     private List<Integer> data;
     private final int value = 150;
@@ -20,7 +20,7 @@ class LinearSearchTest {
     public void setUp() {
         data = DataUtils.generateRandomList();
         data.add(value);
-        Collections.shuffle(data);
+        Collections.sort(data);
     }
 
     @AfterEach
@@ -30,8 +30,8 @@ class LinearSearchTest {
 
     @Test
     void shouldReturnIndexOfGivenElement() {
-        LinearSearch linearSearch = new LinearSearch();
-        int index = linearSearch.search(data, value);
+        var binarySearch = new BinarySearch();
+        int index = binarySearch.search(data, value);
 
         int expectedIndex = data.indexOf(value);
 
@@ -40,9 +40,9 @@ class LinearSearchTest {
 
     @Test
     void shouldReturnNegativeOneAsIndexForElementNotFound() {
-        LinearSearch linearSearch = new LinearSearch();
+        var binarySearch = new BinarySearch();
         int value = 500;
-        int index = linearSearch.search(data, value);
+        int index = binarySearch.search(data, value);
 
         int expectedIndex = -1;
 
