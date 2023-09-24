@@ -6,6 +6,7 @@ import com.example.ds.exceptions.StackFullException;
 import javax.swing.text.html.Option;
 
 import java.util.OptionalInt;
+import java.util.StringJoiner;
 
 import static com.example.ds.exceptions.StackEmptyException.STACK_IS_EMPTY;
 import static com.example.ds.exceptions.StackFullException.STACK_IS_FULL;
@@ -23,7 +24,7 @@ public class Stack {
 
     public void push(int value) {
 
-        if(isFull())
+        if (isFull())
             throw new StackFullException(STACK_IS_FULL);
 
         data[++top] = value;
@@ -31,7 +32,7 @@ public class Stack {
 
     public OptionalInt peek() {
 
-        if(isEmpty())
+        if (isEmpty())
             return OptionalInt.empty();
 
         return OptionalInt.of(data[top]);
@@ -39,7 +40,7 @@ public class Stack {
 
     public int pop() {
 
-        if(isEmpty())
+        if (isEmpty())
             throw new StackEmptyException(STACK_IS_EMPTY);
 
         return data[top--];
@@ -57,8 +58,22 @@ public class Stack {
         return top + 1;
     }
 
-    public int getMaxSize(){
+    public int getMaxSize() {
         return maxSize;
+    }
+
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("[]");
+            return;
+        }
+
+        var sj = new StringJoiner(", ", "[ ", " ]");
+        for (int i = 0; i <= top; i++) {
+            sj.add(String.valueOf(data[i]));
+        }// end for
+
+        System.out.println(sj);
     }
 
 }

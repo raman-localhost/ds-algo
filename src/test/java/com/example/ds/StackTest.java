@@ -100,5 +100,4 @@ class StackTest {
         assertEquals(currentSize - 1, stack.size());
 
     }
-
 }
