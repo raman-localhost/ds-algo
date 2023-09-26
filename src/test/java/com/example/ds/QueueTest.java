@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class QueueTest {
 
-    Queue queue;
+    private Queue queue;
 
     @BeforeEach
     void setup() {
